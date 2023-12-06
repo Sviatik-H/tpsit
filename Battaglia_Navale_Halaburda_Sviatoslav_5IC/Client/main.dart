@@ -197,7 +197,7 @@ void createShip(Battleship b, Map stp) {
     printSectors(b);
     pass = false;
     do {
-      print("Insert the facing direction (N/E/S/W) of your ship:");
+      print("Insert the orientation of your ship between North(N), East(E), South(S) or West(W):");
       direction =
           translateDirection(stdin.readLineSync()!.toUpperCase().trim());
       print("Insert the coordinate from where it starts:");
