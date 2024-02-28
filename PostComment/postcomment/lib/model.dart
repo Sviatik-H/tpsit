@@ -1,27 +1,27 @@
 import 'package:floor/floor.dart';
 
-@entity
+@Entity(tableName: "Post")
 class Post {
   Post({required this.id, required this.text});
 
-  @primaryKey
+  @PrimaryKey(autoGenerate: true)
   final int? id;
 
   String text;
 }
 
-@entity
-class Comment {
-  Comment({required this.id, required this.text, required this.postId});
-
-  @primaryKey
-  final int? id;
-
-  String text;
-  @ForeignKey(
+@Entity(tableName: "Comment", foreignKeys: [
+  ForeignKey(
       childColumns: ["postId"],
       parentColumns: ["id"],
       entity: Post,
       onDelete: ForeignKeyAction.cascade)
+])
+class Comment {
+  Comment({required this.id, required this.text, required this.postId});
+  @PrimaryKey()
+  final int? id;
+  String text;
+  @ColumnInfo(name: "postId")
   final int postId;
 }
