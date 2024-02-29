@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Posts and Comments',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: Colors.blue, backgroundColor: Colors.white70),
+            primarySwatch: Colors.red, backgroundColor: Colors.white70),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Posts and Comments'),
@@ -223,7 +223,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title, style: const TextStyle(color: Colors.white),),
+        title: Text(
+          widget.title,
+          style: const TextStyle(color: Colors.white),
+        ),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Center(
