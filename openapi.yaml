@@ -1,0 +1,63 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Animal API"
+paths:
+  /delete:
+    delete:
+      summary: "Delete an animal by ID"
+      parameters:
+        - in: "query"
+          name: "animal_id"
+          required: true
+          schema:
+            type: "integer"
+          description: "ID of the animal to delete"
+      responses:
+        '200':
+          description: "Animal deleted"
+  /create:
+    post:
+      summary: "Create an animal"
+      responses:
+        '200':
+          description: "Animal created"
+  /post:
+    get:
+      summary: "Get an animal's details"
+      parameters:
+        - in: "query"
+          name: "name"
+          required: true
+          schema:
+            type: "string"
+          description: "Name of the animal"
+        - in: "query"
+          name: "weight"
+          required: true
+          schema:
+            type: "string"
+          description: "Weight of the animal"
+      responses:
+        '200':
+          description: "Animal details retrieved"
+  /put:
+    put:
+      summary: "Put updated details of an animal"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: "object"
+              properties:
+                animal_id:
+                  type: "integer"
+                name:
+                  type: "string"
+                weight:
+                  type: "string"
+              required:
+                - animal_id
+      responses:
+        '200':
+          description: "Animal details updated"
